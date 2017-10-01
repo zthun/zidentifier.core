@@ -25,10 +25,7 @@
         "lint": "npm run lint:ts && npm run lint:js",
         "compile": "tsc",
         "make": "npm run clean && npm run lint && npm run test && npm run compile",
-        "push": "git push origin && git push origin --tags && npm publish --access=public",
-        "release:major": "npm version major && npm run push",
-        "release:minor": "npm verion minor && npm run push",
-        "release:patch": "npm version patch && npm run push"
+        "push": "git push origin && git push origin --tags && npm publish --access=public"
     },
     "devDependencies": {
         "@types/jasmine": "=2.6.0",
