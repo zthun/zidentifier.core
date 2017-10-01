@@ -1,0 +1,51 @@
+{
+    "name": "@zthun/zidentifier.core",
+    "version": "0.0.0",
+    "description": "The core library for the zidentifier feature.",
+    "keywords": [
+        "zid",
+        "zidentifier",
+        "zthunworks"
+    ],
+    "author": "Anthony Bonta",
+    "license": "MIT",
+    "main": "src/index.js",
+    "types": "src/index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/zthun/zidentifier.core"
+    },
+    "scripts": {
+        "clean:src": "rimraf src/*.d.ts src/**/*.d.ts src/*.js src/**/*.js src/*.map src/**/*.map",
+        "clean:bin": "rimraf bin *.tgz",
+        "clean": "npm run clean:bin && npm run clean:src",
+        "test": "karma start cfg/karma.conf.js",
+        "lint:ts": "tslint -c node_modules/zwebstyles/tslint.json src/**/*.ts src/*.ts test/*.ts",
+        "lint:js": "eslint cfg/*.js --config=node_modules/zwebstyles/.eslintrc",
+        "lint": "npm run lint:ts && npm run lint:js",
+        "compile": "tsc",
+        "compress": "uglifyjs bin/dist/zidentifier.js -o bin/dist/zidentifier.min.js",
+        "make": "npm run clean && npm run lint && npm run test && npm run compile && npm run compress",
+        "push": "git push origin && git push origin --tags && npm publish --access=public",
+        "release:major": "npm version major && npm run push",
+        "release:minor": "npm verion minor && npm run push",
+        "release:patch": "npm version patch && npm run push"
+    },
+    "devDependencies": {
+        "@types/jasmine": "=2.6.0",
+        "@types/node": "=8.0.30",
+        "eslint": "=4.7.2",
+        "jasmine-core": "=2.8.0",
+        "karma": "=1.7.1",
+        "karma-jasmine": "=1.1.0",
+        "karma-jasmine-html-reporter": "=0.2.2",
+        "karma-junit-reporter": "=1.2.0",
+        "karma-phantomjs-launcher": "=1.0.4",
+        "karma-typescript": "=3.0.6",
+        "phantomjs-prebuilt": "=2.1.15",
+        "rimraf": "=2.6.2",
+        "tslint": "=5.7.0",
+        "typescript": "=2.5.2",
+        "zwebstyles": "=3.0.0"
+    }
+}
