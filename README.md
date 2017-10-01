@@ -12,7 +12,7 @@ Unfortunately, this leads to a conflict with component based design.  Putting id
 
 ZIdentifier attempts to solve this problem by dynamically generating ids based on the parent root components.  For example, if you had a resulting DOM with the following structure:
 
-```
+```html
 <parent-view-on-index-page id="some-root-component">
     <child-component zId="child-component-a"></child-component>
     <child-component zId="child-component-b"></child-component>
@@ -26,7 +26,7 @@ ZIdentifier attempts to solve this problem by dynamically generating ids based o
 
 The child component is determined by the parent-view-on-index-page component.  If we were to just set an id on the child-component, we would have duplicate ids on the DOM - a big no-no in the HTML5 world.  However, in this case, we are using zId.  Once the zId attribute is processed, you will wind up with the following child components:
 
-```
+```html
 <child-component id="some-root-component-child-component-a">
 </child-component>
 <child-component id="some-root-component-child-component-b">
@@ -46,9 +46,9 @@ There is one scenario for which this fails.  If you are dynamically generating e
 
 To work around this, you are going to have to use your frameworks interpolation based on the context to generate the id.  For example, assume you are using Angular with the [@zthun/zidentifier.angular](https://www.npmjs.com/package/@zthun/zidentifier.angular) package.  You can interpolate context ids with the following pattern.
 
-```
+```html
 <div zId="item-list">
-    <div zId="item-{{item.id}}" *ngFor="let item of items"></>
+    <div zId="item-{{item.id}}" *ngFor="let item of items">
 </div>
 ```
 
@@ -76,3 +76,19 @@ You don't.  This package is automatically installed when using a framework packa
 </td>
 </tr>
 </table>
+
+# Contribution
+
+You can always contribute additional frameworks.  To do so, you can just install the core package.  Make sure to make @zthun/zidentifier.core as a dependency in your package.json.  DO NOT make it a devDependency or peerDependency.  The framework package is responsible for installing the correct version of the core package.  
+
+```sh
+npm install @zthun/zidentifier.core --save
+```
+
+If you need to contribute bug fixes or additional functionality to the core package, please fork the repo on github.  If you just want to hack away and mess around with the core package, you can just clone the repository.   
+
+```sh
+git clone https://github.com/zthun/zidentifier.core
+```
+
+You will need to do a pull request for any specified changes.  Please make sure that any pull requests do a compare across forks.   
