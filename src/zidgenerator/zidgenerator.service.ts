@@ -6,14 +6,41 @@
  */
 export interface IZIdGeneratorService {
     /**
-     * Generates an id for an element given the zId base value.
+     * Generates an attribute for an element given the z* base value.
+     *
+     * @param {String} attr The attribute to add.
+     * @param {String} zValue The value of z*.
+     * @param {HTMLElement} element The element to generate the attribute for.
+     *
+     * @return {boolean | HTMLElement}   This method returns false if the id cannot be
+     *                                  generated given the current state of the element.
+     *                                  If an id is generated, then element is returned
+     *                                  with the updated attribute.
+     */
+    generateAttributeForElement(attr: string, zValue: string, element: HTMLElement): boolean | HTMLElement;
+
+    /**
+     * Generates a for attribute for an element.
+     *
+     * @param {String} zForId The value of the zForId.
+     * @param {HTMLElement} element The element to generate the for attribute for.
+     *
+     * @return {boolean | HTMLElement}  This method returns false if the for attribute cannot be
+     *                                  generated given the current state of the element.
+     *                                  If an attribute is generated, then element is returned
+     *                                  with the updated attribute.
+     */
+    generateForIdForElement(zForIdValue: string, element: HTMLElement): boolean | HTMLElement;
+
+    /**
+     * Generates an id attribute for an element.
      *
      * @param {String} zIdValue The value of the zid.
      * @param {HTMLElement} element The element to generate the id for.
      *
      * @return {boolean | HTMLElement}  This method returns false if the id cannot be
      *                                  generated given the current state of the element.
-     *                                  If an id is generated, then element is returned
+     *                                  If an attribute is generated, then element is returned
      *                                  with the updated attribute.
      */
     generateIdForElement(zIdValue: string, element: HTMLElement): boolean | HTMLElement;
@@ -26,24 +53,21 @@ export interface IZIdGeneratorService {
  */
 export class ZIdGeneratorService implements IZIdGeneratorService {
     /**
-     * Generates an id for an element given the zId base value.
+     * Generates an attribute for an element given the z* base value.
      *
-     * This variation of the implementation will generate the id based on the
-     * parent element. For example, a zIdValue of bar and a parent element that
-     * has an id of foo will set the id of the element to foo-bar.
+     * @param {String} attr The attribute to add.
+     * @param {String} zValue The value of z*.
+     * @param {HTMLElement} element The element to generate the attribute for.
      *
-     * @param {String} zIdValue The value of the zid.
-     * @param {HTMLElement} element The element to generate the id for.
-     *
-     * @return {boolean | HTMLElement}  This method returns false if the id cannot be
+     * @return {boolean | HTMLElement}   This method returns false if the id cannot be
      *                                  generated given the current state of the element.
      *                                  If an id is generated, then element is returned
      *                                  with the updated attribute.
      */
-    public generateIdForElement(zIdValue: string, element: HTMLElement): boolean | HTMLElement {
+    public generateAttributeForElement(attr: string, zValue: string, element: HTMLElement): boolean | HTMLElement {
         let rootElementWithId: HTMLElement = null;
 
-        if (!zIdValue || !element || !!element.getAttribute('id')) {
+        if (!zValue || !element || !!element.getAttribute(attr)) {
             return false;
         }
 
@@ -57,7 +81,19 @@ export class ZIdGeneratorService implements IZIdGeneratorService {
         }
 
         let rootId: string = rootElementWithId.getAttribute('id');
-        element.setAttribute('id', `${rootId}-${zIdValue}`);
+        element.setAttribute(attr, `${rootId}-${zValue}`);
         return element;
     }
+
+    /**
+     * Generates the for attribute for label.
+     *
+     * @param {String} zForIdValue The
+     */
+    public generateForIdForElement = (zForIdValue: string, element: HTMLElement) => this.generateAttributeForElement('for', zForIdValue, element);
+
+    /**
+     * Generates an id for an element given the base value.
+     */
+    public generateIdForElement = (zIdValue: string, element: HTMLElement) => this.generateAttributeForElement('id', zIdValue, element);
 }
