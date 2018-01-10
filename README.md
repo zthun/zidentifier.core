@@ -54,6 +54,19 @@ To work around this, you are going to have to use your frameworks interpolation 
 
 Here, the zId will be interpolated to the item context.  Your item context property binding should be unique amongst all your items; if it isn't, then you will once again have the problem of duplicate ids in the DOM.  This also isn't as convenient as grabbing a static id, but if your QA members have consistent data, then it shouldn't be too much of an issue.  If data is constantly changing, then retrieval by id is probably not going to be the best strategy and you should consider other ways of testing.  
 
+# Labels
+
+This feature also supports HTML labels with support for screen readers.  The syntax and rules are the same for using this tool, but the reason for this is to link a label with an appropriate form field.
+
+```html
+<div zId="item-editor">
+    <label zForId="name-input" />
+    <input zId="name-input" type="text" name="item-name-input">
+</div>
+```
+
+The same rules apply for the labels as the id and the for attribute will be generated given the specified id attribute of the parent tree structure.  
+
 # How to Use
 
 You don't.  This package is automatically installed when using a framework package.  The following is the list of available frameworks that support the ZIdentifier feature.  
