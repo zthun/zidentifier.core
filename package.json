@@ -1,6 +1,6 @@
 {
-    "name": "@zthun/zidentifier.core",
-    "version": "1.1.1",
+    "name": "@zthun/identifier.core",
+    "version": "2.0.0",
     "description": "The core library for the zidentifier feature.",
     "keywords": [
         "zid",
@@ -9,39 +9,36 @@
     ],
     "author": "Anthony Bonta",
     "license": "MIT",
-    "main": "src/index.js",
-    "types": "src/index.d.ts",
+    "main": "dist/commonjs/index.js",
+    "types": "dist/types/index.d.ts",
     "repository": {
         "type": "git",
         "url": "https://github.com/zthun/zidentifier.core"
     },
+    "publishConfig": {
+        "access": "public"
+    },
     "scripts": {
-        "clean:src": "rimraf src/*.d.ts src/**/*.d.ts src/*.js src/**/*.js src/*.map src/**/*.map",
-        "clean:bin": "rimraf bin *.tgz",
-        "clean": "npm run clean:bin && npm run clean:src",
+        "clean": "rimraf dist *.tgz",
         "test": "karma start cfg/karma.conf.js",
-        "lint:ts": "tslint -c node_modules/zwebstyles/tslint.json src/**/*.ts src/*.ts test/*.ts",
-        "lint:js": "eslint cfg/*.js --config=node_modules/zwebstyles/.eslintrc",
+        "lint:ts": "tslint src/**/*.ts -c node_modules/@zthun/web-styles/lint/tslint.json",
+        "lint:js": "eslint cfg/*.js --config=node_modules/@zthun/web-styles/lint/.eslintrc",
         "lint": "npm run lint:ts && npm run lint:js",
         "compile": "tsc",
-        "make": "npm run clean && npm run lint && npm run test && npm run compile",
-        "push": "git push origin && git push origin --tags && npm publish --access=public"
+        "make": "npm run clean && npm run lint && npm run test && npm run compile"
     },
     "devDependencies": {
-        "@types/jasmine": "=2.6.0",
-        "@types/node": "=8.0.30",
-        "eslint": "=4.7.2",
-        "jasmine-core": "=2.8.0",
-        "karma": "=1.7.1",
-        "karma-jasmine": "=1.1.0",
-        "karma-jasmine-html-reporter": "=0.2.2",
+        "@types/jasmine": "=2.8.8",
+        "@types/node": "=10.5.2",
+        "@zthun/web-styles": "=5.0.0",
+        "jasmine-core": "=3.1.0",
+        "karma": "=2.0.4",
+        "karma-chrome-launcher": "=2.2.0",
+        "karma-jasmine": "=1.1.2",
+        "karma-jasmine-html-reporter": "=1.2.0",
         "karma-junit-reporter": "=1.2.0",
-        "karma-phantomjs-launcher": "=1.0.4",
-        "karma-typescript": "=3.0.6",
-        "phantomjs-prebuilt": "=2.1.15",
+        "karma-typescript": "=3.0.12",
         "rimraf": "=2.6.2",
-        "tslint": "=5.7.0",
-        "typescript": "=2.5.2",
-        "zwebstyles": "=3.0.0"
+        "typescript": "=2.9.2"
     }
 }

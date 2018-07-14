@@ -1,21 +1,23 @@
 {
-    "compilerOptions": {
-        "target": "es5",
-        "module": "commonjs",
-        "moduleResolution": "node",
-        "sourceMap": true,
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true,
-        "lib": ["es2015", "dom"],
-        "noImplicitAny": true,
-        "suppressImplicitAnyIndexErrors": true,
-        "declaration": true
-    },
-    "include": [
-        "src/*.ts",
-        "src/**/*.ts"
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "outDir": "dist/commonjs",
+    "sourceMap": true,
+    "inlineSources": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "lib": [
+      "es2015",
+      "dom"
     ],
-    "exclude": [
-        "src/**/*.d.ts"
-    ]
+    "noImplicitAny": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "declaration": true,
+    "declarationDir": "dist/types"
+  },
+  "include": [
+    "src/**/*.ts"
+  ],
 }
