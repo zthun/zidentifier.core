@@ -1,3 +1,3 @@
 *
-!dist/commonjs
-!dist/types
+!dist/commonjs/**
+!dist/types/**
