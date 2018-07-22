@@ -24,8 +24,8 @@
         "lint:ts": "tslint src/**/*.ts -c node_modules/@zthun/web-styles/lint/tslint.json",
         "lint:js": "eslint cfg/*.js --config=node_modules/@zthun/web-styles/lint/.eslintrc",
         "lint": "npm run lint:ts && npm run lint:js",
-        "compile": "tsc",
-        "make": "npm run clean && npm run lint && npm run test && npm run compile"
+        "transpile": "tsc",
+        "make": "npm run clean && npm run lint && npm run test && npm run transpile"
     },
     "devDependencies": {
         "@types/jasmine": "=2.8.8",
@@ -37,7 +37,7 @@
         "karma-jasmine": "=1.1.2",
         "karma-jasmine-html-reporter": "=1.2.0",
         "karma-junit-reporter": "=1.2.0",
-        "karma-typescript": "=3.0.12",
+        "karma-typescript": "=3.0.13",
         "rimraf": "=2.6.2",
         "typescript": "=2.9.2"
     }
