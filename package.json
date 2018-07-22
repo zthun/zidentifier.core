@@ -1,6 +1,6 @@
 {
   "name": "@zthun/identifier.core",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "The core library for the zidentifier feature.",
   "keywords": [
     "zid",
