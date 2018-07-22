@@ -1,44 +1,44 @@
 {
-    "name": "@zthun/identifier.core",
-    "version": "2.0.0",
-    "description": "The core library for the zidentifier feature.",
-    "keywords": [
-        "zid",
-        "zidentifier",
-        "zthunworks"
-    ],
-    "author": "Anthony Bonta",
-    "license": "MIT",
-    "main": "dist/commonjs/index.js",
-    "types": "dist/types/index.d.ts",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/zthun/zidentifier.core"
-    },
-    "publishConfig": {
-        "access": "public"
-    },
-    "scripts": {
-        "clean": "rimraf dist *.tgz",
-        "test": "karma start cfg/karma.conf.js",
-        "lint:ts": "tslint src/**/*.ts -c node_modules/@zthun/web-styles/lint/tslint.json",
-        "lint:js": "eslint cfg/*.js --config=node_modules/@zthun/web-styles/lint/.eslintrc",
-        "lint": "npm run lint:ts && npm run lint:js",
-        "transpile": "tsc",
-        "make": "npm run clean && npm run lint && npm run test && npm run transpile"
-    },
-    "devDependencies": {
-        "@types/jasmine": "=2.8.8",
-        "@types/node": "=10.5.2",
-        "@zthun/web-styles": "=5.0.0",
-        "jasmine-core": "=3.1.0",
-        "karma": "=2.0.4",
-        "karma-chrome-launcher": "=2.2.0",
-        "karma-jasmine": "=1.1.2",
-        "karma-jasmine-html-reporter": "=1.2.0",
-        "karma-junit-reporter": "=1.2.0",
-        "karma-typescript": "=3.0.13",
-        "rimraf": "=2.6.2",
-        "typescript": "=2.9.2"
-    }
+  "name": "@zthun/identifier.core",
+  "version": "2.0.0",
+  "description": "The core library for the zidentifier feature.",
+  "keywords": [
+    "zid",
+    "zidentifier",
+    "zthunworks"
+  ],
+  "author": "Anthony Bonta",
+  "license": "MIT",
+  "main": "dist/commonjs/index.js",
+  "types": "dist/types/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zthun/zidentifier.core"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "clean": "rimraf dist *.tgz",
+    "test": "karma start cfg/karma.conf.js",
+    "lint:ts": "tslint src/**/*.ts -c node_modules/@zthun/web-styles/lint/tslint.json",
+    "lint:js": "eslint cfg/*.js --config=node_modules/@zthun/web-styles/lint/.eslintrc",
+    "lint": "npm run lint:ts && npm run lint:js",
+    "transpile": "tsc",
+    "make": "npm run clean && npm run lint && npm run test && npm run transpile"
+  },
+  "devDependencies": {
+    "@types/jasmine": "=2.8.8",
+    "@types/node": "=10.5.2",
+    "@zthun/web-styles": "=5.0.0",
+    "jasmine-core": "=3.1.0",
+    "karma": "=2.0.4",
+    "karma-chrome-launcher": "=2.2.0",
+    "karma-jasmine": "=1.1.2",
+    "karma-jasmine-html-reporter": "=1.2.0",
+    "karma-junit-reporter": "=1.2.0",
+    "karma-typescript": "=3.0.13",
+    "rimraf": "=2.6.2",
+    "typescript": "=2.9.2"
+  }
 }
