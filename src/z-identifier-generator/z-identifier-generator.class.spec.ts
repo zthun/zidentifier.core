@@ -1,4 +1,8 @@
+import { JSDOM } from 'jsdom';
 import { ZIdentifierGenerator } from './z-identifier-generator.class';
+
+const dom = new JSDOM('<html><head><title>DomStub</title></head><body><div>Some html</div></body></html>');
+const document = dom.window.document;
 
 describe('ZIdentifierGenerator', () => {
   let rootId: string;

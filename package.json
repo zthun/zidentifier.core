@@ -1,6 +1,6 @@
 {
   "name": "@zthun/identifier.core",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "The core library for the zidentifier feature.",
   "keywords": [
     "zid",
@@ -20,25 +20,38 @@
   },
   "scripts": {
     "clean": "rimraf dist *.tgz",
-    "test": "karma start cfg/karma.conf.js",
-    "lint:ts": "tslint src/**/*.ts -c node_modules/@zthun/web-styles/lint/tslint.json",
-    "lint:js": "eslint cfg/*.js --config=node_modules/@zthun/web-styles/lint/.eslintrc",
-    "lint": "npm run lint:ts && npm run lint:js",
+    "test": "jest --coverage",
+    "lint": "tslint src/**/*.ts",
     "transpile": "tsc",
     "make": "npm run clean && npm run lint && npm run test && npm run transpile && npm pack"
   },
   "devDependencies": {
-    "@types/jasmine": "=2.8.8",
-    "@types/node": "=10.5.2",
-    "@zthun/web-styles": "=5.0.0",
-    "jasmine-core": "=3.1.0",
-    "karma": "=2.0.4",
-    "karma-chrome-launcher": "=2.2.0",
-    "karma-jasmine": "=1.1.2",
-    "karma-jasmine-html-reporter": "=1.2.0",
-    "karma-junit-reporter": "=1.2.0",
-    "karma-typescript": "=3.0.13",
+    "@types/jest": "=23.3.5",
+    "@types/jsdom": "=12.2.0",
+    "@types/node": "=10.12.0",
+    "@zthun/web-styles": "=6.0.0",
+    "jest": "=23.6.0",
+    "jsdom": "=12.2.0",
     "rimraf": "=2.6.2",
-    "typescript": "=2.9.2"
+    "ts-jest": "=23.10.4"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "./tsconfig.spec.json"
+      }
+    },
+    "rootDir": "src",
+    "testRegex": ".spec.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "coverageDirectory": "../dist/coverage",
+    "testEnvironment": "node"
   }
 }
