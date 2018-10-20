@@ -1,24 +1,24 @@
 {
   "compilerOptions": {
+    "target": "es5",
     "module": "commonjs",
-    "declaration": true,
-    "noImplicitAny": false,
-    "removeComments": true,
-    "noLib": false,
-    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "outDir": "dist/commonjs",
+    "sourceMap": true,
+    "inlineSources": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "es6",
-    "sourceMap": true,
-    "outDir": "./dist/app",
-    "baseUrl": "./src",
     "lib": [
-      "es2017",
+      "es2015",
       "dom"
-    ]
+    ],
+    "noImplicitAny": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "declaration": true,
+    "declarationDir": "dist/types"
   },
   "include": [
-    "src/**/*"
+    "src/**/*.ts"
   ],
   "exclude": [
     "node_modules",
